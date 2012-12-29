@@ -1,1 +1,3 @@
 *.prefs
+/bin/me/corriekay/packets/*.class
+*.class

@@ -16,12 +16,16 @@ import javax.crypto.NoSuchPaddingException;
 
 import me.corriekay.packets.client.ClientChatPacket;
 import me.corriekay.packets.client.ClientHoofshake;
+import me.corriekay.packets.client.DirectoryRequestPacket;
+import me.corriekay.packets.client.FileRequestPacket;
 import me.corriekay.packets.client.OPonyResponsePacket;
 import me.corriekay.packets.client.PlayerInfoPacket;
 import me.corriekay.packets.server.AssassinateClient;
 import me.corriekay.packets.server.BroadcastMessage;
 import me.corriekay.packets.server.ChanNamesPacket;
 import me.corriekay.packets.server.ChatPacket;
+import me.corriekay.packets.server.DirectoryResponsePacket;
+import me.corriekay.packets.server.FilePacket;
 import me.corriekay.packets.server.OPonyAlertPacket;
 import me.corriekay.packets.server.PlayerInfoResponsePacket;
 import me.corriekay.packets.server.PonyList;
@@ -48,6 +52,9 @@ public class PacketUtils {
 		HashMap<Integer,String> derp3 = new HashMap<Integer,String>();
 		HashMap<Integer,Long> derp4 = new HashMap<Integer,Long>();
 		LinkedHashMap<String,String> derp5 = new LinkedHashMap<String,String>();
+		PoniFile[] file = new PoniFile[1];
+		PoniFolder[] folder = new PoniFolder[1];
+		byte[] bytes = new byte[1];
 		k.register(derp1.getClass());
 		k.register(derp2.getClass());
 		k.register(derp3.getClass());
@@ -70,6 +77,15 @@ public class PacketUtils {
 		k.register(PlayerInfoPacket.class);
 		k.register(PlayerInfoResponsePacket.class);
 		k.register(BroadcastMessage.class);
+		k.register(PoniFile.class);
+		k.register(PoniFolder.class);
+		k.register(FileRequestPacket.class);
+		k.register(FilePacket.class);
+		k.register(DirectoryRequestPacket.class);
+		k.register(DirectoryResponsePacket.class);
+		k.register(file.getClass());
+		k.register(folder.getClass());
+		k.register(bytes.getClass());
 	}
 	public static byte[] rsaEncrypt(byte[] data,Key publicKey) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException
     {
